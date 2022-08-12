@@ -24,7 +24,7 @@ public class PublisherManager {
 
     public void publish(String message) {
         for(ISubscriber subscriber : list) {
-            subscriber.publishMessage(message);
+            subscriber.sendMessage(message);
         }
     }
 }

@@ -12,7 +12,7 @@ public class EmailSubscriber implements ISubscriber {
     }
 
     @Override
-    public void publishMessage(String message) {
+    public void sendMessage(String message) {
         System.out.println("Email to " + subscriber.getEmail() + " has been sent with the message " + message);
     }
 }
