@@ -44,3 +44,10 @@ the instance to the caller.
            return instance;
          }
          ```
+### References
+1. https://en.wikipedia.org/wiki/Double-checked_locking#Usage_in_Java
+2. https://refactoring.guru/design-patterns/singleton
+3. https://youtu.be/oeQWxhlnCHM
+4. https://www.javatpoint.com/singleton-design-pattern-in-java
+5. https://javarevisited.blogspot.com/2011/03/10-interview-questions-on-singleton.html#axzz7bjQpJtCG
+6. https://www.javatpoint.com/volatile-keyword-in-java
