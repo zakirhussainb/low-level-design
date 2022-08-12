@@ -10,11 +10,6 @@ public class Logger {
     Making the constructor private -> It will prevent to instantiate the Singleton class from outside the class.
      */
     private Logger(String value) {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
         this.value = value;
     }
 

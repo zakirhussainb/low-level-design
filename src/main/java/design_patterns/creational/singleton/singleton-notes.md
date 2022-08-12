@@ -21,9 +21,9 @@ the instance to the caller.
 #### 2. Naive Implementation - Multi Threaded
    - In this implementation though you cannot create multiple instances for a single class from outside a class, 
    but still you can create them using multi-threading.
-   - This is demonstrated in the 
+   - When two threads try to access the `getInstance()` method, then two instances of the same class will be created.
 #### 3. Thread-Safe Implementation
-   - This implementation is based on Double-Check-Locking(DCL) where you are ensuring that the getSingleton()/getInstance()
+   - This implementation is based on **Double-Check-Locking(DCL)**, where you are ensuring that the `getSingleton()/getInstance()`
    method always returns the object that has already been initialized without creating a new object.
    - How to implement ?
      - Declare the static private member as volatile.
@@ -31,11 +31,11 @@ the instance to the caller.
          - The volatile keyword now ensures that multiple threads handle the singleton instance correctly.
          - The volatile keyword does not cache the value of the variable and always reads the variable from the main memory.
      - Use synchronization inside the static factory method
-       - Initialize a local variable "localRef" referring to the static private member(logger).
+       - Initialize a local variable `localRef` referring to the static private member(logger).
        This seems unnecessary but the effect of this is that in cases where helper is already initialized 
-       (i.e., most of the time), the volatile field is only accessed once (due to "return localRef;" instead of "return helper;"), 
+       (i.e., most of the time), the volatile field is only accessed once (due to "return `localRef;`" instead of "return `helper;`"), 
        which can improve the method's overall performance by as much as 40 percent.
-       - Obtain a lock in case two threads call getLogger() method
+       - Obtain a lock in case two threads call `getLogger()` method
          ``` 
          synchronized (ThreadSafeLogger.class) {
            if( instance == null ) {

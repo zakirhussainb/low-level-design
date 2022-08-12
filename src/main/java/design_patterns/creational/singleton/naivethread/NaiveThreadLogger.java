@@ -6,6 +6,7 @@ public class NaiveThreadLogger {
     public String value;
 
     private NaiveThreadLogger(String value) {
+        // To stop the execution of the thread for one second and then continue again
         try {
             Thread.sleep(1000);
         } catch (InterruptedException ex) {
