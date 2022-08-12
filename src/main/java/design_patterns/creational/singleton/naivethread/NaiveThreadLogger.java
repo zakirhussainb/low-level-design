@@ -1,5 +1,6 @@
 package main.java.design_patterns.creational.singleton.naivethread;
 
+// Logger with a Singleton Design Pattern -> Note this is not thread-safe
 public class NaiveThreadLogger {
     private static NaiveThreadLogger logger;
     public String value;

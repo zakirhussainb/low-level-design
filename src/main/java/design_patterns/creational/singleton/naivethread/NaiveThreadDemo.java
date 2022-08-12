@@ -3,9 +3,8 @@ package main.java.design_patterns.creational.singleton.naivethread;
 import static main.java.design_patterns.creational.singleton.Constants.CONDITION_FOR_SINGLETON;
 
 /**
- * Here in this demo you will see the output as two singletons are created. That is because we have not handled
- * our NaiveThreadLogger to be threadsafe.
- *
+ * Here in this demo you will see the output that there two singletons being created.
+ * That is because we have not handled our NaiveThreadLogger to be threadsafe.
  */
 public class NaiveThreadDemo {
     public static void main(String[] args) {
