@@ -6,7 +6,7 @@ public class ThreadSafeLogger {
     public String value;
     private ThreadSafeLogger(String value) {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
