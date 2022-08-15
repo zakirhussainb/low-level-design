@@ -1,9 +1,11 @@
 package com.zakcorp.questions.bookmyshow_design.model;
 
+import com.sun.jdi.request.InvalidRequestStateException;
+import lombok.Getter;
 import lombok.NonNull;
-
 import java.util.List;
 
+@Getter
 public class Booking {
     private final String id;
     private final Show show;
@@ -20,4 +22,19 @@ public class Booking {
         this.bookingStatus = BookingStatus.Created;
     }
 
+    public boolean isConfirmed() {
+        return this.bookingStatus == BookingStatus.Confirmed;
+    }
+
+    public void confirmBooking() {
+        if(this.bookingStatus != BookingStatus.Created)
+            throw new InvalidRequestStateException();
+        this.bookingStatus = BookingStatus.Confirmed;
+    }
+
+    public void expireBooking() {
+        if(this.bookingStatus != BookingStatus.Created)
+            throw new InvalidRequestStateException();
+        this.bookingStatus = BookingStatus.Expired;
+    }
 }

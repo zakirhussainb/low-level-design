@@ -4,12 +4,17 @@ import com.zakcorp.questions.bookmyshow_design.exceptions.NotFoundException;
 import com.zakcorp.questions.bookmyshow_design.model.Movie;
 import lombok.NonNull;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
 public class MovieService {
 
     private Map<String, Movie> movieStore;
+
+    public MovieService() {
+        movieStore = new HashMap<>();
+    }
 
     public Movie getMovie(@NonNull final String movieId) {
         if ( !movieStore.containsKey(movieId) ) {
