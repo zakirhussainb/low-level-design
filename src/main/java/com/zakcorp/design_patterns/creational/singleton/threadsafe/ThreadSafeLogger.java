@@ -15,7 +15,11 @@ public class ThreadSafeLogger {
 
     // The below implementation is the Double-Checked-Locking
     public static ThreadSafeLogger getLogger(String value) {
-        // Note the local variable "localRef", which seems unnecessary. The effect of this is that in cases where "logger" is already initialized (i.e., most of the time), the volatile field is only accessed once (due to "return localRef;" instead of "return logger;"), which can improve the method's overall performance by as much as 40 percent.
+        // Note the local variable "localRef", which seems unnecessary.
+        // The effect of this is that in cases where "logger" is already initialized
+        // (i.e., most of the time), the volatile field is only accessed once
+        // (due to "return localRef;" instead of "return logger;"), which can improve
+        // the method's overall performance by as much as 40 percent.
         ThreadSafeLogger localRef = logger;
         if(localRef != null)
             return localRef;
