@@ -1,4 +1,4 @@
-package com.zakcorp.takeuforward.designpatterns.singleton;
+package com.zakcorp.takeuforward.designpatterns.creational;
 
 /*
 In Eager Loading, the Singleton instance is created as soon as the class is loaded,

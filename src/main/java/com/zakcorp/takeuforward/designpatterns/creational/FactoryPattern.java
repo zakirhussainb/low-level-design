@@ -1,4 +1,4 @@
-package com.zakcorp.takeuforward.designpatterns.factory;
+package com.zakcorp.takeuforward.designpatterns.creational;
 
 /*
 Definition:
