@@ -127,3 +127,112 @@ public class AdapterPatternDemo {
     }
 }
 ```
+
+---
+
+## 2. Decorator Design Pattern
+
+### Top 10 Points to Remember
+1.  **Definition:** Attaches additional responsibilities to an object dynamically.
+2.  **Alternative to Inheritance:** Solves the **Class Explosion** problem (e.g., avoiding `CheeseOliveStuffedPizza` subclasses) by using composition instead of inheritance.
+3.  **Wrapper:** It acts as a wrapper around an object. The wrapper implements the same interface as the wrapped object.
+4.  **Open/Closed Principle:** The pattern allows you to extend behavior (add new decorators) without modifying existing code.
+5.  **Runtime Flexibility:** Unlike inheritance (which is static), decorators allow you to mix and match behaviors at runtime.
+6.  **Recursive Composition:** You can wrap a component with a decorator, and then wrap the result with another decorator, creating a "stack" of behaviors.
+7.  **Transparency:** The client code interacts with the decorated object exactly like the original object (since they share the same interface).
+8.  **Single Responsibility:** Each decorator class focuses on a specific feature (e.g., just adding "Cheese"), making code modular.
+9.  **Java I/O:** A classic real-world example is Java's I/O streams (e.g., `new BufferedReader(new FileReader(file))`).
+10. **Drawback:** Can result in many small classes and make debugging harder because of the multiple layers of wrappers (complex stack traces).
+
+### Implementation (Pizza Example)
+
+We use the Pizza example where toppings act as decorators wrapping the base pizza.
+
+```java
+// 1. Component Interface
+interface Pizza {
+    String getDescription();
+    double getCost();
+}
+
+// 2. Concrete Components (The Base Objects)
+class PlainPizza implements Pizza {
+    @Override
+    public String getDescription() {
+        return "Plain Pizza";
+    }
+    @Override
+    public double getCost() {
+        return 150.00;
+    }
+}
+
+class MargheritaPizza implements Pizza {
+    @Override
+    public String getDescription() {
+        return "Margherita Pizza";
+    }
+    @Override
+    public double getCost() {
+        return 200.00;
+    }
+}
+
+// 3. Abstract Decorator (The Wrapper Base)
+abstract class PizzaDecorator implements Pizza {
+    protected Pizza pizza; // Holds reference to the object being wrapped
+
+    public PizzaDecorator(Pizza pizza) {
+        this.pizza = pizza;
+    }
+}
+
+// 4. Concrete Decorators (The Toppings)
+class ExtraCheese extends PizzaDecorator {
+    public ExtraCheese(Pizza pizza) {
+        super(pizza);
+    }
+
+    @Override
+    public String getDescription() {
+        return pizza.getDescription() + ", Extra Cheese";
+    }
+
+    @Override
+    public double getCost() {
+        return pizza.getCost() + 40.0;
+    }
+}
+
+class Olives extends PizzaDecorator {
+    public Olives(Pizza pizza) {
+        super(pizza);
+    }
+
+    @Override
+    public String getDescription() {
+        return pizza.getDescription() + ", Olives";
+    }
+
+    @Override
+    public double getCost() {
+        return pizza.getCost() + 30.0;
+    }
+}
+
+class StuffedCrust extends PizzaDecorator {
+    public StuffedCrust(Pizza pizza) {
+        super(pizza);
+    }
+
+    @Override
+    public String getDescription() {
+        return pizza.getDescription() + ", Stuffed Crust";
+    }
+
+    @Override
+    public double getCost() {
+        return pizza.getCost() + 50.0;
+    }
+}
+```
