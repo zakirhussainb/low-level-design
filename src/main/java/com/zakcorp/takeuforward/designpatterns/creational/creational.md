@@ -4,15 +4,15 @@ This document covers common Creational Design Patterns used to solve object crea
 
 ## Table of Contents
 
-- [1. Singleton Design Pattern](#1-singleton-design-pattern)
+1. [Singleton Design Pattern](#1-singleton-design-pattern)
     - [Top 10 Points to Remember](#top-10-points-to-remember)
     - [Implementation (Bill Pugh Approach - Best Practice)](#implementation-bill-pugh-approach---best-practice)
     - [Usage (Client Code)](#usage-client-code)
-- [2. Factory Design Pattern](#2-factory-design-pattern)
+2. [Factory Design Pattern](#2-factory-design-pattern)
     - [Top 10 Points to Remember](#top-10-points-to-remember-1)
     - [Implementation (Logistics Example)](#implementation-logistics-example)
     - [Usage (Client Code)](#usage-client-code-1)
-- [3. Builder Design Pattern](#3-builder-design-pattern)
+3. [Builder Design Pattern](#3-builder-design-pattern)
     - [Top 10 Points to Remember](#top-10-points-to-remember-2)
     - [Implementation (Java)](#implementation-java)
     - [Usage (Client Code)](#usage-client-code-2)
